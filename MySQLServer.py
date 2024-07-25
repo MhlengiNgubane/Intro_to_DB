@@ -19,8 +19,8 @@ if connection.is_connected():
     try:
         cursor.execute(create_db_query)
         print("Database 'alx_book_store' created successfully!")
-    except:
-        mysql.connector.Error
+    except Error as e:
+        print(f"Error: {e}")
     finally:
         # Close cursor and connection
         cursor.close()
