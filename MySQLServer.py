@@ -20,8 +20,8 @@ try:
         try:
             cursor.execute(create_db_query)
             print("Database 'alx_book_store' created successfully!")
-        except Error as e:
-            print(f"Error creating database: {e}")
+        except mysql.connector.Error:
+            print(f"Error creating database")
         finally:
             # Close cursor
             cursor.close()
@@ -29,8 +29,8 @@ try:
     else:
         print("Error connecting to MySQL server.")
 
-except Error as e:
-    print(f"Error connecting to MySQL: {e}")
+except mysql.connector.Error:
+    print(f"Error connecting to MySQL")
 
 finally:
     # Close connection
